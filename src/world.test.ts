@@ -1,7 +1,5 @@
 import { World } from "./world";
 
-// test world
-
 describe("World", () => {
   const world = new World(4, 4);
 
