@@ -14,7 +14,7 @@ const placeRobotInWorld = (instruction: string) => {
   const [main, place] = instruction.split(" ");
 
   if (main !== "PLACE" || !place) {
-    console.log("Invalid instruction: ", instruction);
+    console.log("Invalid PLACE instruction: ", instruction);
     return;
   }
 

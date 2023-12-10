@@ -22,7 +22,7 @@ describe("Load Instructions", () => {
   test("should load instructions from file with incorrect PLACE instruction", () => {
     const spy = jest.spyOn(console, "log");
     loadInstructions("../assets/instructions_incorrect_1.txt");
-    expect(spy).toHaveBeenCalledWith("Invalid instruction: ", "PLACE0,0,NORTH");
+    expect(spy).toHaveBeenCalledWith("Invalid PLACE instruction: ", "PLACE0,0,NORTH");
   });
 
   test("should load instructions from file with incorrect instruction", () => {
