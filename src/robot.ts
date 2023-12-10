@@ -20,7 +20,7 @@ export class Robot {
     this.direction = direction;
   }
 
-  move() {
+  move(): void {
     let y = this.y;
     let x = this.x;
 
@@ -45,7 +45,7 @@ export class Robot {
     }
   }
 
-  turnLeft() {
+  turnLeft(): void {
     switch (this.direction) {
       case "NORTH":
         this.direction = Direction.WEST;
@@ -62,7 +62,7 @@ export class Robot {
     }
   }
 
-  turnRight() {
+  turnRight() : void {
     switch (this.direction) {
       case "NORTH":
         this.direction = Direction.EAST;

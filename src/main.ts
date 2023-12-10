@@ -3,14 +3,14 @@ import * as path from "path";
 import { World } from "./world";
 import { Direction, Robot } from "./robot";
 
-const readInstructionsFile = (file: string) => {
+const readInstructionsFile = (file: string): string[] => {
   const filePath = path.join(__dirname, file);
   const fileContent = fs.readFileSync(filePath, "utf8");
   const instructions = fileContent.split("\n");
   return instructions;
 };
 
-const placeRobotInWorld = (instruction: string) => {
+const placeRobotInWorld = (instruction: string): Robot | undefined => {
   const [main, place] = instruction.split(" ");
 
   if (main !== "PLACE" || !place) {
@@ -25,6 +25,11 @@ const placeRobotInWorld = (instruction: string) => {
     return;
   }
 
+  if (isNaN(parseInt(x)) || isNaN(parseInt(y))) {
+    console.log(`Invalid x: ${x} or y: ${y}`);
+    return;
+  }
+
   if (!Object.keys(Direction).includes(direction)) {
     console.log("Invalid direction: ", direction);
     return;
@@ -34,7 +39,7 @@ const placeRobotInWorld = (instruction: string) => {
   return new Robot(world, parseInt(x), parseInt(y), direction as Direction);
 };
 
-export const loadInstructions = (fileName: string) => {
+export const loadInstructions = (fileName: string): void => {
   let robot: Robot | undefined;
   const instructions = readInstructionsFile(fileName);
 

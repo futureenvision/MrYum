@@ -15,7 +15,7 @@ export class World {
     this.yMaxLength = yMaxLength;
   }
 
-  isObjectInWorld(object: IWorldObject) {
+  public isObjectInWorld(object: IWorldObject) : boolean {
     if (object.x < this.xMinLength || object.x > this.xMaxLength) {
       return false;
     }

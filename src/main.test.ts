@@ -31,15 +31,21 @@ describe("Load Instructions", () => {
     expect(spy).toHaveBeenCalledWith("Invalid instruction: ", "REPORTS");
   });
 
-  test("should load instructions from file with incorrect instruction formate", () => {
+  test("should load instructions from file with incorrect instruction format", () => {
     const spy = jest.spyOn(console, "log");
     loadInstructions("../assets/instructions_incorrect_3.txt");
     expect(spy).toHaveBeenCalledWith("Invalid instruction: ", "LEFT RIGHT");
   });
 
-  test("should load instructions from file with incorrect instruction formate", () => {
+  test("should load instructions from file with incorrect instruction format", () => {
     const spy = jest.spyOn(console, "log");
     loadInstructions("../assets/instructions_incorrect_4.txt");
     expect(spy).toHaveBeenCalledWith("Invalid direction: ", "NORTHS");
+  });
+
+  test("should load instructions from file with incorrect PLACE parameter type", () => {
+    const spy = jest.spyOn(console, "log");
+    loadInstructions("../assets/instructions_incorrect_5.txt");
+    expect(spy).toHaveBeenCalledWith("Invalid x: x or y: 0");
   });
 });
